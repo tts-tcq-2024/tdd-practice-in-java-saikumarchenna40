@@ -1,74 +1,48 @@
-package TddPracticeInJava;
+import java.util.Scanner;
 
-public class StringCalculator {
-    
-    // Main method to add numbers from a given string input
-    public int add(String numbers) {
-        // Handle empty string case
-        if (numbers.isEmpty()) {
-            return 0;
+public class SumNums {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter two numbers separated by a comma:");
+
+        String input = scanner.nextLine();
+		
+        // Remove newline and semicolon characters
+        String newlineinput = input.replace(";", "");
+		
+		String delimString = newlineinput.replace("\\n", "");
+		
+        // Split the input by comma
+        String[] numbers = delimString.split(",");
+		
+		if(Integer.parseInt(numbers[0]) >= 1000) {
+			System.out.println("The sum is: " + numbers[1]);
+			return;
+		}
+		
+		if(Integer.parseInt(numbers[1]) >= 1000) {
+			System.out.println("The sum is: " + numbers[0]);
+			return;
+		}
+
+        if (numbers.length != 2) {
+            System.out.println("Please enter exactly two numbers.");
+            return;
         }
-        
-        String[] numberList = parseNumbers(numbers);
-        return calculateSum(numberList);
-    }
 
-    // Method to parse numbers by handling custom delimiters
-    private String[] parseNumbers(String numbers) {
-        String delimiter = ",|\n";  // Default delimiters: comma and newline
+        try {
+            int num1 = Integer.parseInt(numbers[0].trim());
+            int num2 = Integer.parseInt(numbers[1].trim());
 
-        // Check for custom delimiter
-        if (numbers.startsWith("//")) {
-            delimiter = extractDelimiter(numbers);
-            numbers = numbers.substring(numbers.indexOf('\n') + 1);  // Remove the delimiter line
-        }
-
-        // Split numbers based on the delimiter
-        return numbers.split(delimiter);
-    }
-
-    // Method to extract the custom delimiter from the input
-    private String extractDelimiter(String numbers) {
-        // Get the line containing the delimiter
-        String delimiterLine = numbers.substring(2, numbers.indexOf('\n'));
-        return delimiterLine.replaceAll("\\[", "").replaceAll("\\]", "");  // Handle delimiters like //[] and others
-    }
-
-    // Method to calculate the sum of the parsed numbers
-    private int calculateSum(String[] numberList) {
-        List<Integer> negatives = new ArrayList<>();
-        int total = 0;
-
-        for (String num : numberList) {
-            if (!num.isEmpty()) {
-                int n = Integer.parseInt(num);
-                checkNegative(n, negatives); // Check for negatives
-                total += addValidNumber(n);   // Add valid numbers to total
+            // Check if numbers are greater than 100
+            if (num1 > 1000 || num2 > 1000) {
+                System.out.println("Numbers should not be greater than 100.");
+            } else {
+                int sum = num1 + num2;
+                System.out.println("The sum is: " + sum);
             }
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input. Please enter valid integers.");
         }
-
-        // Raise exception if there are negatives
-        handleNegatives(negatives);
-
-        return total;
-    }
-
-     // Method to check if the number is negative and collect them
-    private void checkNegative(int number, List<Integer> negatives) {
-        if (number < 0) {
-            negatives.add(number);  // Collect negatives
-        }
-    }
-
-    // Method to handle negative numbers and throw an exception if needed
-    private void handleNegatives(List<Integer> negatives) {
-        if (!negatives.isEmpty()) {
-            throw new IllegalArgumentException("negatives not allowed: " + negatives);
-        }
-    }
-
-    // Method to add a valid number (ignore if greater than 1000)
-    private int addValidNumber(int number) {
-        return (number <= 1000) ? number : 0;
     }
 }
