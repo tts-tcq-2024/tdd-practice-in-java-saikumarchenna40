@@ -36,25 +36,39 @@ public class StringCalculator {
 
     // Method to calculate the sum of the parsed numbers
     private int calculateSum(String[] numberList) {
-        int total = 0;
         List<Integer> negatives = new ArrayList<>();
+        int total = 0;
 
         for (String num : numberList) {
-            if (!num.isEmpty()) {  // Skip empty strings
+            if (!num.isEmpty()) {
                 int n = Integer.parseInt(num);
-                if (n < 0) {
-                    negatives.add(n);  // Collect negatives
-                } else if (n <= 1000) {
-                    total += n;  // Sum numbers less than or equal to 1000
-                }
+                checkNegative(n, negatives); // Check for negatives
+                total += addValidNumber(n);   // Add valid numbers to total
             }
         }
 
         // Raise exception if there are negatives
+        handleNegatives(negatives);
+
+        return total;
+    }
+
+     // Method to check if the number is negative and collect them
+    private void checkNegative(int number, List<Integer> negatives) {
+        if (number < 0) {
+            negatives.add(number);  // Collect negatives
+        }
+    }
+
+    // Method to handle negative numbers and throw an exception if needed
+    private void handleNegatives(List<Integer> negatives) {
         if (!negatives.isEmpty()) {
             throw new IllegalArgumentException("negatives not allowed: " + negatives);
         }
+    }
 
-        return total;
+    // Method to add a valid number (ignore if greater than 1000)
+    private int addValidNumber(int number) {
+        return (number <= 1000) ? number : 0;
     }
 }
