@@ -29,6 +29,10 @@ public class StringCalculator {
             int num1 = getValidNumber(numbers[0].trim());
             int num2 = getValidNumber(numbers[1].trim());
 
+            printSum();
+        }
+
+        private printSum(){
             if (num1 <= 1000 && num2 <= 1000) {
                 int sum = num1 + num2;
                 System.out.println("The sum is: " + sum);
