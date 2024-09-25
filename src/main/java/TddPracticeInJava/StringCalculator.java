@@ -29,13 +29,14 @@ public class StringCalculator {
             int num1 = getValidNumber(numbers[0].trim());
             int num2 = getValidNumber(numbers[1].trim());
 
-            printSum();
+            System.out.println("The sum is: " + printSum(numbers[0], numbers[1]));
         }
 
-        private printSum(){
+        private printSum(int num1, int num2){
             if (num1 <= 1000 && num2 <= 1000) {
                 int sum = num1 + num2;
-                System.out.println("The sum is: " + sum);
+                return sum;
+                //System.out.println("The sum is: " + sum);
             }
         }
 }
