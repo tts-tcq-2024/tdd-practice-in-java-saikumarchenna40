@@ -8,7 +8,7 @@ public class StringCalculator {
         String input = scanner.nextLine().replace("\n", "").replace(";", "").trim();
         String[] numbers = input.split(",");
 
-        printNumber();
+         System.out.println("The sum is: " + printNumber());
 
         scanner.close();
     }
@@ -29,7 +29,8 @@ public class StringCalculator {
             int num1 = getValidNumber(numbers[0].trim());
             int num2 = getValidNumber(numbers[1].trim());
 
-            System.out.println("The sum is: " + printSum(numbers[0], numbers[1]));
+            return printSum(numbers[0], numbers[1]);
+            //System.out.println("The sum is: " + printSum(numbers[0], numbers[1]));
         }
 
         private printSum(int num1, int num2){
