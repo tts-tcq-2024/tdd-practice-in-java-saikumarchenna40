@@ -7,15 +7,9 @@ public class SumNums {
 
         String input = scanner.nextLine();
 		
-        // Remove newline and semicolon characters
-        String newlineinput = input.replace(";", "");
-		
-		String delimString = newlineinput.replace("\\n", "");
-		
-        // Split the input by comma
-        String[] numbers = delimString.split(",");
+        
 
-System.out.println("The sum is: " + filterthousandNo(numbers);
+System.out.println("The sum is: " + filterthousandNo(optimizeno(input));
 		
 
         if (numbers.length != 2) {
@@ -38,6 +32,18 @@ System.out.println("The sum is: " + filterthousandNo(numbers);
             System.out.println("Invalid input. Please enter valid integers.");
         }
     }
+	
+	public String[] optimizeno(string no){
+	// Remove newline and semicolon characters
+        String newlineinput = no.replace(";", "");
+		
+		String delimString = newlineinput.replace("\\n", "");
+		
+        // Split the input by comma
+        //String[] numbers = delimString.split(",");
+		return delimString.split(",");
+	}
+	
 
 	public int filterthousandNo(String[] numbers) {
 	if(Integer.parseInt(numbers[0]) >= 1000) {
