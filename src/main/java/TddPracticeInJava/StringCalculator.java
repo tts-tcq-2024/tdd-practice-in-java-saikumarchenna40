@@ -14,16 +14,9 @@ public class SumNums {
 		
         // Split the input by comma
         String[] numbers = delimString.split(",");
+
+System.out.println("The sum is: " + filterthousandNo(numbers);
 		
-		if(Integer.parseInt(numbers[0]) >= 1000) {
-			System.out.println("The sum is: " + numbers[1]);
-			return;
-		}
-		
-		if(Integer.parseInt(numbers[1]) >= 1000) {
-			System.out.println("The sum is: " + numbers[0]);
-			return;
-		}
 
         if (numbers.length != 2) {
             System.out.println("Please enter exactly two numbers.");
@@ -36,7 +29,7 @@ public class SumNums {
 
             // Check if numbers are greater than 100
             if (num1 > 1000 || num2 > 1000) {
-                System.out.println("Numbers should not be greater than 100.");
+                System.out.println("Numbers should not be greater than 1000.");
             } else {
                 int sum = num1 + num2;
                 System.out.println("The sum is: " + sum);
@@ -45,4 +38,11 @@ public class SumNums {
             System.out.println("Invalid input. Please enter valid integers.");
         }
     }
+
+	public int filterthousandNo(String[] numbers) {
+	if(Integer.parseInt(numbers[0]) >= 1000) {
+			return numbers[1];
+		} else {
+return numbers[0];
+		}
 }
