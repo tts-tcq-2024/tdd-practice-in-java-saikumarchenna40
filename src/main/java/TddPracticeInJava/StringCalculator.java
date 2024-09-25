@@ -8,29 +8,10 @@ public class SumNums {
         String input = scanner.nextLine();
 		
         
-
 System.out.println("The sum is: " + filterthousandNo(optimizeno(input));
 		
 
-        if (numbers.length != 2) {
-            System.out.println("Please enter exactly two numbers.");
-            return;
-        }
-
-        try {
-            int num1 = Integer.parseInt(numbers[0].trim());
-            int num2 = Integer.parseInt(numbers[1].trim());
-
-            // Check if numbers are greater than 100
-            if (num1 > 1000 || num2 > 1000) {
-                System.out.println("Numbers should not be greater than 1000.");
-            } else {
-                int sum = num1 + num2;
-                System.out.println("The sum is: " + sum);
-            }
-        } catch (NumberFormatException e) {
-            System.out.println("Invalid input. Please enter valid integers.");
-        }
+        
     }
 	
 	public String[] optimizeno(string no){
@@ -51,4 +32,26 @@ System.out.println("The sum is: " + filterthousandNo(optimizeno(input));
 		} else {
 return numbers[0];
 		}
+		
+		if (numbers.length != 2) {
+            System.out.println("Please enter exactly two numbers.");
+            return;
+        }
+
+        try {
+            int num1 = Integer.parseInt(numbers[0].trim());
+            int num2 = Integer.parseInt(numbers[1].trim());
+
+            // Check if numbers are greater than 100
+            if (num1 > 1000 || num2 > 1000) {
+                System.out.println("Numbers should not be greater than 1000.");
+            } else {
+                int sum = num1 + num2;
+                System.out.println("The sum is: " + sum);
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input. Please enter valid integers.");
+        }
+		
+	}
 }
