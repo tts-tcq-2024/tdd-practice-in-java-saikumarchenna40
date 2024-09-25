@@ -8,17 +8,7 @@ public class StringCalculator {
         String input = scanner.nextLine().replace("\n", "").replace(";", "").trim();
         String[] numbers = input.split(",");
 
-        if (numbers.length != 2) {
-            System.out.println("Please enter exactly two numbers.");
-        } else {
-            int num1 = getValidNumber(numbers[0].trim());
-            int num2 = getValidNumber(numbers[1].trim());
-
-            if (num1 <= 1000 && num2 <= 1000) {
-                int sum = num1 + num2;
-                System.out.println("The sum is: " + sum);
-            }
-        }
+        printNumber();
 
         scanner.close();
     }
@@ -31,4 +21,17 @@ public class StringCalculator {
             return -1; // Return an invalid number
         }
     }
+
+    private void printNumber() {
+        if (numbers.length != 2) {
+            System.out.println("Please enter exactly two numbers.");
+        } else {
+            int num1 = getValidNumber(numbers[0].trim());
+            int num2 = getValidNumber(numbers[1].trim());
+
+            if (num1 <= 1000 && num2 <= 1000) {
+                int sum = num1 + num2;
+                System.out.println("The sum is: " + sum);
+            }
+        }
 }
