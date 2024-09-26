@@ -1,0 +1,58 @@
+ 
+ 
+Test Case1: ExpectZeroForEmptyInput
+
+Description: When an empty string in given, returns 0.
+
+Input: "" (empty string)
+
+Expected Output: 0
+ 
+Test Case2: ExpectZeroForSingleZero
+
+Description: When an empty string in given, returns 0.
+
+Input: "0"
+
+Expected Output: 0
+ 
+Test Case3: ExpectSumForTwoNumbers
+
+Description: When two numbers seperated by comma is given, returns the sum of the numbers.
+
+Input: "1,2"
+
+Expected Output: 3
+ 
+Test Case4: ExpectExceptionForNegativeNumbers
+
+Description:  When a negative number is given, throws an exception.
+
+Input: "-1,2"
+
+Expected Output: Exception
+ 
+Test Case5: ExpectSumWithNewlineDelimiter
+
+Description: When two numbers by \n separated are given, returns the sum of the numbers.
+
+Input: "1\n2,3"
+
+Expected Output: 6
+ 
+Test Case6: IgnoreNumbersGreaterThan1000
+
+Description: When a number greater than 1000 is given, the number should be considered as 0.
+
+Input: "1,1001"
+
+Expected Output: 1
+ 
+Test Case7: ExpectSumWithCustomDelimiter
+
+Description: When the numbers are given with custom delimiters, should be handled carefully
+
+Input: "//;\n1;2"
+
+Expected Output: 3
+ 
