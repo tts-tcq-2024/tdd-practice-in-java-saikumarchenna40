@@ -11,7 +11,7 @@ public class StringCalculatorTest {
     public void ExpectZeroForEmptyInput()
     {
         int expectedResult = 0;
-        String input = "";
+        String input1 = "";
         StringCalculator objUnderTest = new StringCalculator();
         int result = objUnderTest.add(input);
 
